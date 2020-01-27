@@ -2,10 +2,24 @@
 
 // Basic express setup:
 
-const PORT          = 8080;
-const express       = require("express");
-const bodyParser    = require("body-parser");
-const app           = express();
+const PORT = 8080;
+const express = require("express");
+const sassMiddleware = require("node-sass-middleware");
+const path = require("path");
+const bodyParser = require("body-parser");
+const app = express();
+const root = process.cwd();
+
+// Sass/Scss Middleware for Express
+app.use(
+  sassMiddleware({
+    src: path.join(root, "/public/styles"),
+    dest: path.join(root, "/public/styles"),
+    debug: true,
+    outputStyle: "compressed",
+    prefix: "/styles"
+  })
+);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
