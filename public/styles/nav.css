@@ -10,5 +10,5 @@ nav {
 }
 
 .logo {
-  font-family: "Bungee", cursive;
+  font-family: var(--bungie);
 }

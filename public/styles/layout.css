@@ -12,6 +12,13 @@ html {
   box-sizing: inherit;
 }
 
+/* 
+ * Root variables
+ */
+html {
+  --bungie: "Bungee", cursive;
+}
+
 /*
  * Global layout stuff
  */
