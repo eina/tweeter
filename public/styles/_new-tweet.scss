@@ -1,28 +1,28 @@
 .new-tweet {
   padding: 1em;
-}
 
-.new-tweet textarea {
-  display: block;
-  width: 100%;
-  border: none;
-  border-bottom: solid 5px #333;
-  padding: 0.25em 0;
-  margin-bottom: 0.5em;
-  background: none;
-  font-weight: 700;
+  textarea {
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: solid 5px $black;
+    padding: 0.25em 0;
+    margin-bottom: 0.5em;
+    background: none;
+    font-weight: 700;
+  }
 }
 
 input[type="submit"] {
-  background: #4056a1;
+  background: $blue;
   border: none;
   padding: 0.25em 0.5em;
   color: #fff;
-  font-family: var(--bungie);
+  font-family: $bungie;
   font-size: 0.9em;
 }
 
 .counter {
   float: right;
-  font-family: var(--bungie);
+  font-family: $bungie;
 }
