@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server/index.js",
-    "local": "./node_modules/.bin/nodemon --watch server -e js server/index.js"
+    "local": "./node_modules/.bin/nodemon --watch server -e js server/index.js",
+    "lint": "eslint /scripts/*.js --fix"
   },
   "author": "Lighthouse Labs",
   "license": "ISC",
@@ -19,6 +20,7 @@
     "node-sass-middleware": "^0.11.0"
   },
   "devDependencies": {
+    "eslint-config-jquery": "^2.0.0",
     "nodemon": "^1.9.2"
   }
 }
