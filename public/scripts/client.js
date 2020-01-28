@@ -4,20 +4,33 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-// Test / driver code (temporary). Eventually will get this from the server.
-const tweetData = {
-  user: {
-    name: "Newton",
-    avatars: "https://i.imgur.com/73hZDYK.png",
-    handle: "@SirIsaac"
+// Fake data taken from initial-tweets.json
+const data = [
+  {
+    user: {
+      name: "Newton",
+      avatars: "https://i.imgur.com/73hZDYK.png",
+      handle: "@SirIsaac"
+    },
+    content: {
+      text: "If I have seen further it is by standing on the shoulders of giants"
+    },
+    created_at: 1461116232227
   },
-  content: {
-    text: "If I have seen further it is by standing on the shoulders of giants"
-  },
-  created_at: 1461116232227
-};
+  {
+    user: {
+      name: "Descartes",
+      avatars: "https://i.imgur.com/nlhLi3I.png",
+      handle: "@rd"
+    },
+    content: {
+      text: "Je pense , donc je suis"
+    },
+    created_at: 1461113959088
+  }
+];
 
-// svg definitions for button use
+// svg definitions for button use, is this the best place to put this?
 const svgIcons = {
   flag: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-flag"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>`,
   retweet: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-repeat"><polyline points="17 1 21 5 17 9"></polyline><path d="M3 11V9a4 4 0 0 1 4-4h14"></path><polyline points="7 23 3 19 7 15"></polyline><path d="M21 13v2a4 4 0 0 1-4 4H3"></path></svg>`,
@@ -25,13 +38,17 @@ const svgIcons = {
 };
 
 $(document).ready(function() {
-  const createTweetElement = function(tweetData) {
+  /**
+   * Create <article> element to show single tweet
+   * @param {object} tweetData
+   */
+  const createTweetElement = function(tweet) {
     const { flag, retweet, heart } = svgIcons;
     const {
       user: { name, avatars, handle },
       content: { text },
       created_at: createdAt
-    } = tweetData;
+    } = tweet;
     const timestamp = new Date(createdAt * 1000);
     const header = `<header>
     <img src="${avatars}" class="tweet-profile-photo" />
@@ -51,7 +68,15 @@ $(document).ready(function() {
     return $tweet;
   };
 
-  const $tweet = createTweetElement(tweetData);
-  console.log("tweet?", $tweet);
-  // $("#tweets-container").append($tweet);
+  const renderTweets = tweets => {
+    tweets.forEach(tweetObj => {
+      const $tweet = createTweetElement(tweetObj);
+      return $("#tweets-container").append($tweet);
+    });
+  };
+
+  renderTweets(data);
+
+  // const $tweet = createTweetElement(tweetData);
+  // console.log("tweet?", $tweet);
 });
