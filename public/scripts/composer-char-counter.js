@@ -1,6 +1,5 @@
 $(document).ready(function() {
   const charCounter = function() {
-    console.log($(this).val().length);
     const tweetLength = $(this).val().length;
     const counter = $(this).siblings(".counter");
     counter.text(140 - tweetLength);
