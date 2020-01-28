@@ -21,6 +21,11 @@ input[type="submit"] {
   color: #fff;
   font-family: $bungie;
   font-size: 0.9em;
+
+  &:disabled {
+    background-color: $gray;
+    color: $black;
+  }
 }
 
 .counter {

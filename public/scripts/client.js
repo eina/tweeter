@@ -4,32 +4,6 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-// Fake data taken from initial-tweets.json
-const data = [
-  {
-    user: {
-      name: "Newton",
-      avatars: "https://i.imgur.com/73hZDYK.png",
-      handle: "@SirIsaac"
-    },
-    content: {
-      text: "If I have seen further it is by standing on the shoulders of giants"
-    },
-    created_at: 1461116232227
-  },
-  {
-    user: {
-      name: "Descartes",
-      avatars: "https://i.imgur.com/nlhLi3I.png",
-      handle: "@rd"
-    },
-    content: {
-      text: "Je pense , donc je suis"
-    },
-    created_at: 1461113959088
-  }
-];
-
 // svg definitions for button use, is this the best place to put this?
 const svgIcons = {
   flag:
@@ -46,10 +20,21 @@ $(document).ready(function() {
     event.preventDefault();
     const url = $(this).attr("action");
     const query = $(this).serialize();
-    $.ajax(url, { method: "POST", data: query }).then(tweets => {
-      console.log("tweets?", tweets);
-      return tweets;
-    });
+    const textLength = $(this)
+      .children("textarea")
+      .val().length;
+    const $submit = $(this).children("input[type=submit]");
+
+    if (textLength === 0) {
+      alert("Please write something");
+    } else if (textLength > 140) {
+      alert("Your tweet should be shorter than 140 characters");
+    } else {
+      $.ajax(url, { method: "POST", data: query }).then(tweets => {
+        console.log("tweets?", tweets);
+        return tweets;
+      });
+    }
   });
   /**
    * Create <article> element to show single tweet
@@ -92,5 +77,11 @@ $(document).ready(function() {
     });
   };
 
-  renderTweets(data);
+  const loadTweets = function() {
+    $.ajax("/tweets", { method: "GET" }).then(tweets => {
+      return renderTweets(tweets);
+    });
+  };
+
+  loadTweets();
 });
