@@ -1,0 +1,71 @@
+// styles for the tweet element
+.tweet {
+  padding: 1em;
+  margin-bottom: 1em;
+  border: 3px solid $black;
+  transition: box-shadow 0.2s ease-in-out;
+
+  &:hover {
+    box-shadow: 10px 10px 0px 0px $gray;
+    .tweet-username {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
+
+.tweet header {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  width: 100%;
+
+  img {
+    width: 60px;
+    height: auto;
+    margin-right: 1em;
+    border-radius: 100%;
+  }
+
+  .tweet-username {
+    visibility: hidden;
+    opacity: 0;
+    margin-left: auto;
+    font-weight: 700;
+    color: $gray;
+    transition: opacity 0.2s ease-in-out;
+  }
+}
+
+.tweet-body {
+  font-size: 1.05em;
+}
+
+.tweet-body,
+.tweet footer {
+  padding: 0.5em 0.5em 0;
+}
+
+.tweet footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 3px solid $black;
+  font-size: 0.85em;
+
+  button {
+    border: none;
+    background: none;
+  }
+
+  button svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  // svg icons
+  .feather-flag,
+  .feather-heart {
+    fill: $black;
+  }
+}

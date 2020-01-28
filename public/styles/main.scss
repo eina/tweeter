@@ -2,9 +2,11 @@
 $bungie: "Bungee", cursive;
 $black: #545149;
 $blue: #4056a1;
+$gray: #afb3be;
 
 @import "layout";
 @import "header";
 @import "nav";
 
 @import "new-tweet";
+@import "tweet";
