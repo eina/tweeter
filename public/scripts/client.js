@@ -15,27 +15,6 @@ const svgIcons = {
 };
 
 $(document).ready(function() {
-  // handle form submission
-  $("#newTweetForm").submit(function(event) {
-    event.preventDefault();
-    const url = $(this).attr("action");
-    const query = $(this).serialize();
-    const textLength = $(this)
-      .children("textarea")
-      .val().length;
-    const $submit = $(this).children("input[type=submit]");
-
-    if (textLength === 0) {
-      alert("Please write something");
-    } else if (textLength > 140) {
-      alert("Your tweet should be shorter than 140 characters");
-    } else {
-      $.ajax(url, { method: "POST", data: query }).then(tweets => {
-        console.log("tweets?", tweets);
-        return tweets;
-      });
-    }
-  });
   /**
    * Create <article> element to show single tweet
    * @param {object} tweetData
@@ -82,6 +61,37 @@ $(document).ready(function() {
       return renderTweets(tweets);
     });
   };
+
+  // submit handler callback
+  const submitTweet = function(event) {
+    event.preventDefault();
+
+    const url = $(this).attr("action");
+    const query = $(this).serialize();
+    const textLength = $(this)
+      .children("textarea")
+      .val().length;
+    // validate form
+    if (textLength === 0) {
+      alert("Please write something");
+    } else if (textLength > 140) {
+      alert("Your tweet should be shorter than 140 characters");
+    } else {
+      $.ajax("/tweets", { method: "POST", data: query }).then(newTweet => {
+        $.ajax("/tweets", { method: "GET" }).then(tweets => {
+          const tweetsToShow = [newTweet, ...tweets];
+          $(this)
+            .children("textarea")
+            .val("");
+          $("#tweets-container").empty();
+          return renderTweets(tweetsToShow);
+        });
+      });
+    }
+  };
+
+  // handle form submission
+  $("#newTweetForm").submit(submitTweet);
 
   loadTweets();
 });
