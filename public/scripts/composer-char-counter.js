@@ -6,6 +6,6 @@ $(document).ready(function() {
     $counter.toggleClass("counter-red", tweetLength >= 140);
   };
 
-  $("#compose-textarea").keyup(charCounter);
-  $("#compose-textarea").change(charCounter);
+  $("#newTweetForm textarea").keyup(charCounter);
+  $("#newTweetForm textarea").change(charCounter);
 });

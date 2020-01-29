@@ -15,6 +15,19 @@ const svgIcons = {
 };
 
 $(document).ready(function() {
+  // scroll btn handler
+  $("#scrollBtn").click(function(e) {
+    e.preventDefault();
+    const top = $(window).scrollTop();
+    const animateProperty = {
+      scrollTop: top === 0 ? $("#tweets-container").offset().top - 150 : 0
+    };
+    $("html, body").animate(animateProperty, 500, function() {
+      if (top > 0) {
+        $("#newTweetForm textarea").focus();
+      }
+    });
+  });
   /**
    * Create <article> element to show single tweet
    * @param {object} tweetData

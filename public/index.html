@@ -33,7 +33,7 @@
     <nav>
       <span class="logo">tweeter</span>
       <div class="nav-links">
-        <button id="scrollBtn"><b>Write</b> a new tweet</button>
+        <button id="scrollBtn" type="button"><b>Write</b> a new tweet</button>
       </div>
     </nav>
 
@@ -53,11 +53,7 @@
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
         <form id="newTweetForm" action="/tweets/" method="POST">
-          <textarea
-            name="text"
-            id="compose-textarea"
-            placeholder="What are you humming about?"
-          ></textarea>
+          <textarea name="text" placeholder="What are you humming about?"></textarea>
           <input type="submit" value="Tweet" />
           <span class="counter">140</span>
         </form>
