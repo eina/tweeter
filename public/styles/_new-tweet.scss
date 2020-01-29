@@ -23,7 +23,7 @@ input[type="submit"] {
   background: $blue;
   border: none;
   padding: 0.25em 0.5em;
-  color: #fff;
+  color: $white;
   font-family: $bungie;
   font-size: 0.9em;
 
@@ -34,7 +34,7 @@ input[type="submit"] {
 
   &:disabled {
     background-color: $gray;
-    color: #fff;
+    color: $white;
   }
 }
 
@@ -43,15 +43,14 @@ input[type="submit"] {
   font-family: $bungie;
 }
 
-.counter-red {
-  color: red;
+.error {
+  color: $red;
 }
 
 .form-error {
   display: none;
   margin-bottom: 1em;
   padding: 0.75em;
-  border: 3px solid red;
-  color: red;
+  border: 3px solid $red;
   font-weight: 700;
 }

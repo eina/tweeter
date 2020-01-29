@@ -6,8 +6,8 @@
   height: 400px;
   margin-top: 120px;
   background: url("../images/back-pattern.png");
-  background-color: #5191a9;
-  color: #fff;
+  background-color: $teal;
+  color: $white;
   text-align: center;
 
   @media screen and (min-width: $bp-small) and (max-width: $bp-medium) {
