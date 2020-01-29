@@ -15,9 +15,8 @@
 }
 
 .tweet header {
-  display: flex;
+  @extend %flex-align-center;
   flex-flow: row nowrap;
-  align-items: center;
   width: 100%;
 
   img {
@@ -47,9 +46,8 @@
 }
 
 .tweet footer {
-  display: flex;
+  @extend %flex-align-center;
   justify-content: space-between;
-  align-items: center;
   border-top: 3px solid $black;
   font-size: 0.85em;
 

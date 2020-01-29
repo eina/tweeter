@@ -80,7 +80,7 @@ $(document).ready(function() {
   const renderTweets = tweets => {
     tweets.forEach(tweetObj => {
       const $tweet = createTweetElement(tweetObj);
-      return $("#tweets-container").append($tweet);
+      return $("#tweets-container").prepend($tweet);
     });
   };
 
@@ -105,7 +105,9 @@ $(document).ready(function() {
     } else if (textLength > 140) {
       $formError.text("Your tweet should be shorter than 140 characters").slideDown();
     } else {
-      $formError.slideToggle();
+      if ($formError) {
+        $formError.slideUp();
+      }
       $.ajax("/tweets", { method: "POST", data: query }).then(() => {
         $.ajax("/tweets", { method: "GET" }).then(tweets => {
           $(this)
