@@ -19,6 +19,7 @@ $(document).ready(function() {
   $("#scrollBtn").click(function(e) {
     e.preventDefault();
     const top = $(window).scrollTop();
+    // toggle between top of window and textarea
     const animateProperty = {
       scrollTop: top === 0 ? $("#tweets-container").offset().top - 150 : 0
     };
