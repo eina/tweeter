@@ -26,16 +26,14 @@ $(document).ready(function() {
       content: { text },
       created_at: createdAt
     } = tweet;
-    const timestamp = new Date(createdAt * 1000);
+    const timestamp = moment(createdAt).fromNow();
     const header = `<header>
     <img src="${avatars}" class="tweet-profile-photo" />
     <span class="tweet-author">${name}</span>
     <span class="tweet-username">${handle}</span>
     </header>`;
     const body = `<div class="tweet-body"><p>${text}</p></div>`;
-    const footer = `<footer><span class="tweet-timestamp">${Date.parse(
-      timestamp
-    )}</span><div class="tweet-actions"><button>${flag}</button><button>${retweet}</button><button>${heart}</button></div></footer>`;
+    const footer = `<footer><span class="tweet-timestamp">${timestamp}</span><div class="tweet-actions"><button>${flag}</button><button>${retweet}</button><button>${heart}</button></div></footer>`;
 
     let $tweet = $("<article>").addClass("tweet");
     $tweet.append(header);
