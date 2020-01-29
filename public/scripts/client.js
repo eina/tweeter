@@ -27,6 +27,7 @@ $(document).ready(function() {
       created_at: createdAt
     } = tweet;
     const timestamp = moment(createdAt).fromNow();
+
     const header = `<header>
     <img src="${avatars}" class="tweet-profile-photo" />
     <span class="tweet-author">${name}</span>
