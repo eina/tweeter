@@ -26,6 +26,11 @@ input[type="submit"] {
     background-color: $gray;
     color: $black;
   }
+
+  &:disabled {
+    background-color: $gray;
+    color: #fff;
+  }
 }
 
 .counter {
@@ -35,4 +40,13 @@ input[type="submit"] {
 
 .counter-red {
   color: red;
+}
+
+.form-error {
+  display: none;
+  margin-bottom: 1em;
+  padding: 0.75em;
+  border: 3px solid red;
+  color: red;
+  font-weight: 700;
 }

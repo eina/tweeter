@@ -4,7 +4,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-// svg definitions for button use, is this the best place to put this?
+// svg definitions for buttons
 const svgIcons = {
   flag:
     '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-flag"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>',
@@ -21,6 +21,12 @@ $(document).ready(function() {
     const top = $(window).scrollTop();
     $("#scrollToTop").toggle(top >= 200);
     $("#scrollBtn").toggle(top <= 200);
+  });
+
+  // scroll to top handler
+  $("#scrollToTop").click(function(e) {
+    e.preventDefault();
+    $("html, body").animate({ scrollTop: 0 }, 250, "linear");
   });
 
   // scroll btn handler
@@ -60,9 +66,7 @@ $(document).ready(function() {
     const footer = `<footer><span class="tweet-timestamp">${timestamp}</span><div class="tweet-actions"><button>${flag}</button><button>${retweet}</button><button>${heart}</button></div></footer>`;
 
     let $tweet = $("<article>").addClass("tweet");
-    $tweet.append(header);
-    $tweet.append($body);
-    $tweet.append(footer);
+    $tweet.append(header, $body, footer);
 
     return $tweet;
   };
@@ -87,20 +91,22 @@ $(document).ready(function() {
   // submit handler callback
   const submitTweet = function(event) {
     event.preventDefault();
-    const url = $(this).attr("action");
     const query = $(this).serialize();
     const textLength = $(this)
       .children("textarea")
       .val().length;
-    // validate form
+    const $formError = $("#tweetFormError");
+
+    // validate form submission
     if (textLength === 0) {
-      alert("Please write something");
+      console.log("what", $formError);
+      $formError.text("Please write something").slideDown();
     } else if (textLength > 140) {
-      alert("Your tweet should be shorter than 140 characters");
+      $formError.text("Your tweet should be shorter than 140 characters").slideDown();
     } else {
-      $.ajax("/tweets", { method: "POST", data: query }).then(newTweet => {
+      $formError.slideToggle();
+      $.ajax("/tweets", { method: "POST", data: query }).then(() => {
         $.ajax("/tweets", { method: "GET" }).then(tweets => {
-          // const tweetsToShow = [newTweet, ...tweets];
           $(this)
             .children("textarea")
             .val("");
