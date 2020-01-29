@@ -27,9 +27,32 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+.wrapper {
+  @media screen and (min-width: $bp-medium) {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    grid-gap: 1.8em;
+    margin-top: 100px;
+  }
+
+  @media screen and (min-width: $bp-xlarge) {
+    grid-gap: 5em;
+    width: 80%;
+    margin: 100px auto 0;
+  }
+
+  @media screen and (min-width: $bp-xxlarge) {
+    width: 60%;
+  }
+}
+
 main {
   width: 90%;
   margin: 0 auto;
+
+  @media screen and (min-width: $bp-medium) {
+    margin: 120px auto 0;
+  }
 }
 
 #scrollToTop {

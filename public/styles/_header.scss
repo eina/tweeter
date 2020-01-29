@@ -10,9 +10,24 @@
   color: #fff;
   text-align: center;
 
-  @media screen and (min-width: 768px) and (max-width: 1024px) {
+  @media screen and (min-width: $bp-small) and (max-width: $bp-medium) {
     margin-top: 0;
     padding-top: 2em;
     height: 520px;
   }
+
+  @media screen and (min-width: $bp-medium) {
+    width: 80%;
+    margin: 120px auto 0;
+    padding: 10em 0;
+  }
+}
+
+.my-name {
+  font-size: 1.8em;
+  margin: 0.25em 0;
+}
+
+.fw-normal {
+  font-weight: normal;
 }

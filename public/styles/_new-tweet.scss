@@ -1,17 +1,22 @@
 .new-tweet {
-  padding: 1em;
-  margin-bottom: 1em;
+  margin: 2em 0;
+  padding: 0 0.75em;
 
-  textarea {
-    display: block;
-    width: 100%;
-    border: none;
-    border-bottom: solid 5px $black;
-    padding: 0.25em 0;
-    margin-bottom: 0.5em;
-    background: none;
-    font-weight: 700;
+  @media screen and (min-width: $bp-medium) {
+    margin-top: 0;
+    margin-bottom: 2em;
   }
+}
+
+.new-tweet textarea {
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: solid 5px $black;
+  padding: 0.25em 0;
+  margin-bottom: 0.5em;
+  background: none;
+  font-weight: 700;
 }
 
 input[type="submit"] {

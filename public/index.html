@@ -42,32 +42,33 @@
         </button>
       </div>
     </nav>
+    <div class="wrapper">
+      <!-- Header -->
+      <header class="main-header">
+        <div>
+          <img src="/images/profile-hex.png" />
+        </div>
+        <br />
+        <div>
+          <h3 class="my-name">Eina <span class="fw-normal">Onting</span></h3>
+        </div>
+      </header>
 
-    <!-- Header -->
-    <header class="main-header">
-      <div>
-        <img src="/images/profile-hex.png" />
-      </div>
-      <br />
-      <div>
-        <h3>Your Name</h3>
-      </div>
-    </header>
+      <!-- Page-specific (main) content here -->
+      <main class="container">
+        <section class="new-tweet">
+          <form id="newTweetForm" action="/tweets/" method="POST">
+            <p class="form-error" id="tweetFormError" role="alert"></p>
+            <textarea name="text" placeholder="What are you humming about?"></textarea>
+            <input type="submit" value="Tweet" />
+            <span class="counter">140</span>
+          </form>
+        </section>
 
-    <!-- Page-specific (main) content here -->
-    <main class="container">
-      <section class="new-tweet">
-        <h2>Compose Tweet</h2>
-        <form id="newTweetForm" action="/tweets/" method="POST">
-          <p class="form-error" id="tweetFormError" role="alert"></p>
-          <textarea name="text" placeholder="What are you humming about?"></textarea>
-          <input type="submit" value="Tweet" />
-          <span class="counter">140</span>
-        </form>
-      </section>
+        <section id="tweets-container"></section>
 
-      <section id="tweets-container"></section>
-    </main>
-    <button id="scrollToTop">&uarr;</button>
+        <button id="scrollToTop">&uarr;</button>
+      </main>
+    </div>
   </body>
 </html>

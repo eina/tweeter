@@ -4,6 +4,12 @@ $black: #545149;
 $blue: #4056a1;
 $gray: #afb3be;
 
+// breakpoints
+$bp-small: 48em; // 768px
+$bp-medium: 64em; // 1024px
+$bp-xlarge: 120em; // 1920px
+$bp-xxlarge: 160em; // 2560px
+
 @import "layout";
 @import "header";
 @import "nav";
