@@ -32,12 +32,13 @@ $(document).ready(function() {
     <span class="tweet-author">${name}</span>
     <span class="tweet-username">${handle}</span>
     </header>`;
-    const body = `<div class="tweet-body"><p>${text}</p></div>`;
+    const $escaped = $("<p>").text(text);
+    const $body = $(`<div class="tweet-body"></div>`).append($escaped);
     const footer = `<footer><span class="tweet-timestamp">${timestamp}</span><div class="tweet-actions"><button>${flag}</button><button>${retweet}</button><button>${heart}</button></div></footer>`;
 
     let $tweet = $("<article>").addClass("tweet");
     $tweet.append(header);
-    $tweet.append(body);
+    $tweet.append($body);
     $tweet.append(footer);
 
     return $tweet;
@@ -63,7 +64,6 @@ $(document).ready(function() {
   // submit handler callback
   const submitTweet = function(event) {
     event.preventDefault();
-
     const url = $(this).attr("action");
     const query = $(this).serialize();
     const textLength = $(this)
@@ -77,12 +77,12 @@ $(document).ready(function() {
     } else {
       $.ajax("/tweets", { method: "POST", data: query }).then(newTweet => {
         $.ajax("/tweets", { method: "GET" }).then(tweets => {
-          const tweetsToShow = [newTweet, ...tweets];
+          // const tweetsToShow = [newTweet, ...tweets];
           $(this)
             .children("textarea")
             .val("");
           $("#tweets-container").empty();
-          return renderTweets(tweetsToShow);
+          return renderTweets(tweets);
         });
       });
     }
