@@ -62,7 +62,9 @@ $(document).ready(function() {
     <span class="tweet-username">${handle}</span>
     </header>`;
     const $escaped = $("<p>").text(text);
-    const $body = $(`<div class="tweet-body"></div>`).append($escaped);
+    const $body = $("<div>")
+      .addClass("tweet-body")
+      .append($escaped);
     const footer = `<footer><span class="tweet-timestamp">${timestamp}</span><div class="tweet-actions"><button>${flag}</button><button>${retweet}</button><button>${heart}</button></div></footer>`;
 
     let $tweet = $("<article>").addClass("tweet");
@@ -99,7 +101,6 @@ $(document).ready(function() {
 
     // validate form submission
     if (textLength === 0) {
-      console.log("what", $formError);
       $formError.text("Please write something").slideDown();
     } else if (textLength > 140) {
       $formError.text("Your tweet should be shorter than 140 characters").slideDown();
