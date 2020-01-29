@@ -31,3 +31,22 @@ main {
   width: 90%;
   margin: 0 auto;
 }
+
+#scrollToTop {
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  padding-bottom: 10px;
+  font-size: 50px;
+  border: none;
+  border-radius: 50%;
+  background-color: orange;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+}

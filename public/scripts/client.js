@@ -15,10 +15,18 @@ const svgIcons = {
 };
 
 $(document).ready(function() {
+  // show/hide #showToTop
+  $("#scrollToTop").hide();
+  $(window).scroll(function() {
+    const top = $(window).scrollTop();
+    $("#scrollToTop").toggle(top >= 200);
+    $("#scrollBtn").toggle(top <= 200);
+  });
+
   // scroll btn handler
   $("#scrollBtn").click(function(e) {
-    e.preventDefault();
     const top = $(window).scrollTop();
+    e.preventDefault();
     // toggle between top of window and textarea
     const animateProperty = {
       scrollTop: top === 0 ? $("#tweets-container").offset().top - 150 : 0
