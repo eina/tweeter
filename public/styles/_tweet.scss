@@ -26,8 +26,7 @@
   }
 
   .tweet-username {
-    visibility: hidden;
-    opacity: 0;
+    @extend %hide-element-visibility;
     margin-left: auto;
     font-weight: 700;
     color: $gray;
@@ -52,8 +51,7 @@
 }
 
 .tweet-actions {
-  visibility: hidden;
-  opacity: 0;
+  @extend %hide-element-visibility;
   transition: opacity 0.2s ease-in;
 
   button {

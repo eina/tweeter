@@ -11,6 +11,11 @@
   align-items: center;
 }
 
+%hide-element-visibility {
+  visibility: hidden;
+  opacity: 0;
+}
+
 /* Mixins */
 @mixin button-generator($bg, $border, $color) {
   background: $bg;
