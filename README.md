@@ -11,7 +11,27 @@ This repository is the starter code for the project: Students will fork and clon
 3. Start the web server using the `npm run local` command. The app will be served at <http://localhost:8080/>.
 4. Go to <http://localhost:8080/> in your browser.
 
+## Screenshots
+
+![Tweeter Functionality](./docs/tweeter-01.gif "Tweeter Functionality")
+![Tweeter Responsive Design](./docs/tweeter-02.gif "Tweeter Responsive Design")
+
+## External Libraries/Plugins
+
+- Normalize
+- Moment JS
+- Autosize
+
 ## Dependencies
 
 - Express
 - Node 5.10.x or above
+- body-parser
+- chance
+- md5
+- node-sass
+- node-sass-middleware
+
+## Dev Dependencies
+
+- nodemon
