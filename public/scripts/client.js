@@ -72,11 +72,12 @@ $(document).ready(function() {
     const query = $(this).serialize();
     const textLength = $(this)
       .children("textarea")
-      .val().length;
+      .val()
+      .trim().length;
     const $formError = $("#tweetFormError");
 
     // validate form submission
-    if (textLength === 0) {
+    if (!textLength) {
       $formError.text("Please write something").slideDown();
     } else if (textLength > 140) {
       $formError.text("Your tweet should be shorter than 140 characters").slideDown();
