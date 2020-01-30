@@ -8,6 +8,7 @@ nav {
   padding: 1.5em;
   color: $white;
   background-color: $blue;
+  overflow: hidden;
 
   @media screen and (min-width: $bp-small) and (max-width: $bp-medium) {
     background: none;

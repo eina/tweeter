@@ -103,7 +103,7 @@ $(document).ready(function() {
   $(window).scroll(function() {
     const top = $(window).scrollTop();
     $("#scrollToTop").toggle(top >= 200);
-    $("#scrollBtn").toggle(top <= 200);
+    $("#toggleComposeBtn").toggle(top <= 200);
   });
 
   // scroll to top handler
@@ -116,7 +116,7 @@ $(document).ready(function() {
   });
 
   // scroll btn handler
-  $("#scrollBtn").click(function(e) {
+  $("#toggleComposeBtn").click(function(e) {
     e.preventDefault();
     $("#newTweetForm").slideToggle(300, function() {
       $(this)
