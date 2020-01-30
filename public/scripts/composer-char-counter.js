@@ -6,6 +6,5 @@ $(document).ready(function() {
     $counter.toggleClass("error", tweetLength >= 140);
   };
 
-  $("#newTweetForm textarea").keyup(charCounter);
-  $("#newTweetForm textarea").change(charCounter);
+  $("#newTweetForm textarea").on("keyup change", charCounter);
 });

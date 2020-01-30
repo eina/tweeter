@@ -13,7 +13,9 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Screenshots
 
+Functionality
 ![Tweeter Functionality](./docs/tweeter-01.gif "Tweeter Functionality")
+Responsive Design
 ![Tweeter Responsive Design](./docs/tweeter-02.gif "Tweeter Responsive Design")
 
 ## External Libraries/Plugins
