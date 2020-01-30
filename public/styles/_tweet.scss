@@ -23,7 +23,6 @@
     width: 60px;
     height: auto;
     margin-right: 1em;
-    border-radius: 100%;
   }
 
   .tweet-username {
@@ -56,13 +55,18 @@
   }
 
   button svg {
-    width: 20px;
-    height: 20px;
-  }
+    width: 23px;
+    height: 23px;
+    margin-right: 0.3em;
 
-  // svg icons
-  .feather-flag,
-  .feather-heart {
-    fill: $black;
+    &:not(.feather-repeat):hover,
+    &:focus {
+      fill: $black;
+    }
+
+    &:hover,
+    &:focus {
+      stroke: $black;
+    }
   }
 }
