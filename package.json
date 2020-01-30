@@ -20,7 +20,6 @@
     "node-sass-middleware": "^0.11.0"
   },
   "devDependencies": {
-    "eslint-config-jquery": "^2.0.0",
     "nodemon": "^1.9.2"
   }
 }

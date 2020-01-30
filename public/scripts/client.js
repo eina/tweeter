@@ -17,6 +17,7 @@ const svgIcons = {
 $(document).ready(function() {
   /**
    * Create <article> element to show single tweet
+   * and append its contents from the data given
    * @param {object} tweetData
    */
   const createTweetElement = function(tweet) {
@@ -62,7 +63,10 @@ $(document).ready(function() {
     });
   };
 
-  // submit handler callback
+  /**
+   * Submit tweet handler, with validation
+   * @param {object} event
+   */
   const submitTweet = function(event) {
     event.preventDefault();
     const query = $(this).serialize();
