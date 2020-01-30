@@ -15,32 +15,6 @@ const svgIcons = {
 };
 
 $(document).ready(function() {
-  // show/hide #showToTop
-  $("#scrollToTop").hide();
-  $(window).scroll(function() {
-    const top = $(window).scrollTop();
-    $("#scrollToTop").toggle(top >= 200);
-    $("#scrollBtn").toggle(top <= 200);
-  });
-
-  // scroll to top handler
-  $("#scrollToTop").click(function(e) {
-    e.preventDefault();
-    $("html, body").animate({ scrollTop: 0 }, 250, "linear", function() {
-      $("#newTweetForm").slideDown();
-      $("#newTweetForm textarea").focus();
-    });
-  });
-
-  // scroll btn handler
-  $("#scrollBtn").click(function(e) {
-    e.preventDefault();
-    $("#newTweetForm").slideToggle(300, function() {
-      $(this)
-        .children("textarea")
-        .focus();
-    });
-  });
   /**
    * Create <article> element to show single tweet
    * @param {object} tweetData
@@ -120,6 +94,36 @@ $(document).ready(function() {
 
   // handle form submission
   $("#newTweetForm").submit(submitTweet);
+
+  // use autosize plugin for textarea
+  $("#newTweetForm textarea").autosize();
+
+  // show/hide #showToTop
+  $("#scrollToTop").hide();
+  $(window).scroll(function() {
+    const top = $(window).scrollTop();
+    $("#scrollToTop").toggle(top >= 200);
+    $("#scrollBtn").toggle(top <= 200);
+  });
+
+  // scroll to top handler
+  $("#scrollToTop").click(function(e) {
+    e.preventDefault();
+    $("html, body").animate({ scrollTop: 0 }, 250, "linear", function() {
+      $("#newTweetForm").slideDown();
+      $("#newTweetForm textarea").focus();
+    });
+  });
+
+  // scroll btn handler
+  $("#scrollBtn").click(function(e) {
+    e.preventDefault();
+    $("#newTweetForm").slideToggle(300, function() {
+      $(this)
+        .children("textarea")
+        .focus();
+    });
+  });
 
   loadTweets();
 });
