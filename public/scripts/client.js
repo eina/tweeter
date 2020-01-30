@@ -27,13 +27,13 @@ $(document).ready(function() {
   $("#scrollToTop").click(function(e) {
     e.preventDefault();
     $("html, body").animate({ scrollTop: 0 }, 250, "linear", function() {
+      $("#newTweetForm").slideDown();
       $("#newTweetForm textarea").focus();
     });
   });
 
   // scroll btn handler
   $("#scrollBtn").click(function(e) {
-    const top = $(window).scrollTop();
     e.preventDefault();
     $("#newTweetForm").slideToggle(300, function() {
       $(this)
