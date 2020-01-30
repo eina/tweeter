@@ -10,7 +10,9 @@ $red: #d2202f;
 $teal: #5191a9;
 
 // breakpoints
+// from css-tricks: https://css-tricks.com/optimizing-large-scale-displays/
 $bp-small: 48em; // 768px
 $bp-medium: 64em; // 1024px
+$bp-large: 85.375em; // 1366px
 $bp-xlarge: 120em; // 1920px
 $bp-xxlarge: 160em; // 2560px

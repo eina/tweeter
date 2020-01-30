@@ -17,7 +17,6 @@
 .tweet header {
   @extend %flex-align-center;
   flex-flow: row nowrap;
-  width: 100%;
 
   img {
     width: 60px;
@@ -58,7 +57,8 @@
     @include button-generator(none, none, $blue);
   }
 
-  button svg {
+  // svg icons
+  button .feather {
     width: 23px;
     height: 23px;
     margin-right: 0.3em;

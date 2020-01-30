@@ -11,6 +11,7 @@ nav {
   color: $white;
   background-color: $blue;
   overflow: hidden;
+  transition: all 0.3s ease;
 
   @media screen and (min-width: $bp-small) and (max-width: $bp-medium) {
     background: none;
