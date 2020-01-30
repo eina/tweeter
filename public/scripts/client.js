@@ -35,14 +35,10 @@ $(document).ready(function() {
   $("#scrollBtn").click(function(e) {
     const top = $(window).scrollTop();
     e.preventDefault();
-    // toggle between top of window and textarea
-    const animateProperty = {
-      scrollTop: top === 0 ? $("#tweets-container").offset().top - 150 : 0
-    };
-    $("html, body").animate(animateProperty, 500, function() {
-      if (top > 0) {
-        $("#newTweetForm textarea").focus();
-      }
+    $("#newTweetForm").slideToggle(300, function() {
+      $(this)
+        .children("textarea")
+        .focus();
     });
   });
   /**
