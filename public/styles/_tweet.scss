@@ -6,7 +6,8 @@
 
   &:hover {
     box-shadow: 10px 10px 0px 0px $gray;
-    .tweet-username {
+    .tweet-username,
+    .tweet-actions {
       visibility: visible;
       opacity: 1;
     }
@@ -48,6 +49,12 @@
   justify-content: space-between;
   border-top: 3px solid $black;
   font-size: 0.85em;
+}
+
+.tweet-actions {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease-in;
 
   button {
     @include button-generator(none, none, $blue);

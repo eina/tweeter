@@ -82,9 +82,15 @@ $(document).ready(function() {
       }
       $.ajax("/tweets", { method: "POST", data: query }).then(() => {
         $.ajax("/tweets", { method: "GET" }).then(tweets => {
+          // clear text area
           $(this)
             .children("textarea")
             .val("");
+          // reset counter to 140
+          $(this)
+            .children(".counter")
+            .text(140);
+          // empty container and reload tweets
           $("#tweets-container").empty();
           return renderTweets(tweets);
         });
@@ -92,16 +98,17 @@ $(document).ready(function() {
     }
   };
 
+  // hide compose form on load
+  $("#new-tweet").hide();
+
   // handle form submission
   $("#newTweetForm").submit(submitTweet);
 
-  // use autosize plugin for textarea
-  $("#newTweetForm textarea").autosize();
-
-  // show/hide #showToTop
+  // show/hide #showToTop button
   $("#scrollToTop").hide();
   $(window).scroll(function() {
     const top = $(window).scrollTop();
+    // toggle buttons based on position
     $("#scrollToTop").toggle(top >= 200);
     $("#toggleComposeBtn").toggle(top <= 200);
   });
@@ -110,17 +117,20 @@ $(document).ready(function() {
   $("#scrollToTop").click(function(e) {
     e.preventDefault();
     $("html, body").animate({ scrollTop: 0 }, 250, "linear", function() {
-      $("#newTweetForm").slideDown();
+      // show compose tweet section
+      $("#new-tweet").slideDown();
       $("#newTweetForm textarea").focus();
     });
   });
 
-  // scroll btn handler
+  // toggle compose button handler
   $("#toggleComposeBtn").click(function(e) {
     e.preventDefault();
-    $("#newTweetForm").slideToggle(300, function() {
+    $("#new-tweet").slideToggle(300, function() {
+      // use autosize plugin for textarea
       $(this)
         .children("textarea")
+        .autosize()
         .focus();
     });
   });
