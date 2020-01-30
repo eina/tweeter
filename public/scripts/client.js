@@ -26,7 +26,9 @@ $(document).ready(function() {
   // scroll to top handler
   $("#scrollToTop").click(function(e) {
     e.preventDefault();
-    $("html, body").animate({ scrollTop: 0 }, 250, "linear");
+    $("html, body").animate({ scrollTop: 0 }, 250, "linear", function() {
+      $("#newTweetForm textarea").focus();
+    });
   });
 
   // scroll btn handler

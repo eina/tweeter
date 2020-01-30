@@ -13,12 +13,6 @@ $bp-medium: 64em; // 1024px
 $bp-xlarge: 120em; // 1920px
 $bp-xxlarge: 160em; // 2560px
 
-// placeholder classes for extends
-%flex-align-center {
-  display: flex;
-  align-items: center;
-}
-
 @import "utils";
 @import "layout";
 @import "header";

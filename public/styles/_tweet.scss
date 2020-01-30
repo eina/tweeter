@@ -52,8 +52,7 @@
   font-size: 0.85em;
 
   button {
-    border: none;
-    background: none;
+    @include button-generator(none, none, $blue);
   }
 
   button svg {

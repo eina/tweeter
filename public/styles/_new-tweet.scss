@@ -20,17 +20,10 @@
 }
 
 input[type="submit"] {
-  background-color: $blue;
-  border: none;
+  @include button-generator($blue, none, $white);
   padding: 0.25em 0.5em;
-  color: $white;
   font-family: $bungie;
   font-size: 0.9em;
-
-  &:hover,
-  &:focus {
-    background-color: darken($blue, 25%);
-  }
 }
 
 .counter {

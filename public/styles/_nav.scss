@@ -22,10 +22,7 @@ nav {
   margin-left: auto;
 
   button {
-    background: none;
-    border: none;
-    color: $white;
-    text-decoration: none;
+    @include button-generator(none, none, $white);
   }
 
   .write-text {
