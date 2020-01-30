@@ -6,6 +6,10 @@
 
 /* Placeholders */
 
+%word-break-all {
+  word-break: break-all;
+}
+
 %flex-align-center {
   display: flex;
   align-items: center;

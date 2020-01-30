@@ -13,8 +13,12 @@ nav {
   overflow: hidden;
   transition: all 0.3s ease;
 
-  @media screen and (min-width: $bp-small) and (max-width: $bp-medium) {
+  @media screen and (min-width: $bp-small) {
     background: none;
+  }
+
+  @media screen and (min-width: $bp-medium) {
+    background-color: $blue;
   }
 }
 

@@ -8,6 +8,7 @@
   background-color: $teal;
   color: $white;
   text-align: center;
+  @extend %word-break-all;
 
   @media screen and (min-width: $bp-small) and (max-width: $bp-medium) {
     margin-top: 0;

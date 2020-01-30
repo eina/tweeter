@@ -3,6 +3,7 @@
   margin-bottom: 1em;
   border: 3px solid $black;
   transition: box-shadow 0.2s ease-in-out;
+  @extend %word-break-all;
 
   &:hover {
     box-shadow: 10px 10px 0px 0px $gray;
@@ -22,6 +23,11 @@
     width: 60px;
     height: auto;
     margin-right: 1em;
+  }
+
+  // safe guard for super long names w/o spaces
+  .tweet-author {
+    flex-basis: 50%;
   }
 
   .tweet-username {
