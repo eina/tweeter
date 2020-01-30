@@ -17,7 +17,7 @@
 
 .tweet header {
   @extend %flex-align-center;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
 
   img {
     width: 60px;
@@ -27,15 +27,13 @@
 
   // safe guard for super long names w/o spaces
   .tweet-author {
-    flex-basis: 50%;
+    flex-basis: 35%;
   }
 
   .tweet-username {
-    @extend %hide-element-visibility;
     margin-left: auto;
     font-weight: 700;
     color: $gray;
-    transition: opacity 0.2s ease-in-out;
   }
 }
 
@@ -55,10 +53,18 @@
   font-size: 0.85em;
 }
 
+.tweet-username,
 .tweet-actions {
   @extend %hide-element-visibility;
-  transition: opacity 0.2s ease-in;
+  transition: opacity 0.2s ease-in-out;
 
+  @media screen and (max-width: $bp-medium) {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.tweet-actions {
   button {
     @include button-generator(none, none, $blue);
   }

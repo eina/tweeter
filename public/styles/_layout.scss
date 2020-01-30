@@ -54,19 +54,3 @@ main {
     margin: 120px auto 0;
   }
 }
-
-#scrollToTop {
-  @include button-generator(orange, none, $white);
-  position: fixed;
-  right: 15px;
-  bottom: 15px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 80px;
-  height: 80px;
-  padding-bottom: 10px;
-  font-size: 50px;
-  border-radius: 50%;
-  font-weight: 700;
-}

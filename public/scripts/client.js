@@ -129,9 +129,9 @@ $(document).ready(function() {
     $("#new-tweet").slideToggle(300, function() {
       // use autosize plugin for textarea
       $(this)
-        .children("textarea")
-        .autosize()
-        .focus();
+        .find("textarea")
+        .focus()
+        .autosize();
     });
   });
 
